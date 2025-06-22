@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,185 +6,297 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
-      --main-bg: #f5f7fa;
-      --menu-bg: #22344e;
-      --menu-accent: #446cb3;
-      --text-main: #222;
-      --text-menu: #fff;
+      --face-bg: #f4f7fb;
+      --back-bg: #22344e;
+      --accent: #446cb3;
       --highlight: #efaa3d;
+      --text-main: #22344e;
+      --text-invert: #fff;
     }
     body {
       margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: var(--main-bg);
+      background: var(--face-bg);
       color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-    }
-    nav {
-      background: var(--menu-bg);
-      min-width: 220px;
-      width: 220px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      padding-top: 40px;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.04);
-      position: fixed;
-      z-index: 10;
-      transition: width 0.2s;
-    }
-    nav h1 {
-      color: var(--highlight);
-      text-align: center;
-      font-size: 1.1em;
-      margin-bottom: 2.5em;
-      letter-spacing: 1px;
-    }
-    nav a {
-      color: var(--text-menu);
-      text-decoration: none;
-      padding: 16px 32px;
-      font-size: 1.08em;
-      border-left: 4px solid transparent;
-      transition: background 0.2s, border-color 0.2s;
-      margin-bottom: 4px;
-    }
-    nav a.active, nav a:hover {
-      background: var(--menu-accent);
-      border-left: 4px solid var(--highlight);
-    }
-    .main-container {
-      display: flex;
-      margin-left: 220px;
-      width: 100%;
       min-height: 100vh;
       box-sizing: border-box;
     }
-    main {
-      flex: 1 1 0%;
-      padding: 2em 5vw;
-      max-width: 750px;
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 235px;
+      height: 100vh;
+      background: var(--back-bg);
+      color: var(--text-invert);
+      box-shadow: 2px 0 14px 0 rgba(30,40,70,0.07);
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 0 0 0;
+      transition: transform 0.22s;
+    }
+    .sidebar.closed {
+      transform: translateX(-100%);
+    }
+    .sidebar .logo {
+      font-size: 1.19em;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      margin-bottom: 2.5em;
+      color: var(--highlight);
+      text-align: center;
+    }
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
       width: 100%;
+      align-items: stretch;
+      gap: 0.4em;
+    }
+    .sidebar a {
+      color: var(--text-invert);
+      text-decoration: none;
+      font-size: 1.09em;
+      padding: 14px 32px;
+      border-left: 4px solid transparent;
+      transition: background 0.16s, border-color 0.18s;
+      margin-right: 0;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+    .sidebar a.active, .sidebar a:hover {
+      background: var(--accent);
+      border-left: 4px solid var(--highlight);
+    }
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      width: 34px;
+      height: 34px;
+      z-index: 1050;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+    }
+    .hamburger span, .hamburger span:after, .hamburger span:before {
+      content: '';
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: var(--back-bg);
+      border-radius: 2px;
+      position: absolute;
+      transition: all 0.3s;
+    }
+    .hamburger span {
+      position: relative;
+      margin-top: 15px;
+      margin-left: 0;
+    }
+    .hamburger span:before {
+      top: -10px;
+      position: absolute;
+      left: 0;
+    }
+    .hamburger span:after {
+      top: 10px;
+      position: absolute;
+      left: 0;
+    }
+    /* Main layout */
+    .content-wrapper {
+      margin-left: 235px;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: margin-left 0.2s;
+    }
+    .hero {
+      display: flex;
+      gap: 3vw;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5em 4vw 1em 4vw;
+      flex-wrap: wrap;
+    }
+    .hero-text {
+      flex: 1 1 350px;
+      min-width: 260px;
+      max-width: 520px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-    .video-right {
-      flex: 0 0 340px;
+    .hero-video {
+      flex: 0 0 320px;
       min-width: 220px;
+      max-width: 350px;
       display: flex;
       align-items: flex-start;
-      justify-content: flex-end;
-      padding: 2em 2em 0 0;
-      box-sizing: border-box;
+      justify-content: center;
     }
-    .video-right video {
+    .hero-video video {
       aspect-ratio: 9/16;
       width: 100%;
-      height: 430px;
-      max-height: 80vh;
+      max-width: 350px;
+      height: 420px;
+      max-height: 76vh;
       object-fit: cover;
       background: #222;
-      border-radius: 18px;
+      border-radius: 20px;
       box-shadow: 0 2px 20px rgba(60,80,120,0.13);
       display: block;
     }
-    h2 {
+    h1, h2, h3 {
       color: var(--highlight);
-      margin-top: 0.5em;
+      margin-bottom: 0.2em;
+      margin-top: 0.6em;
+      font-weight: 700;
+      letter-spacing: 0.1em;
     }
-    h3 {
-      margin-bottom: 0.25em;
-      color: #3a506b;
-    }
+    h2 { font-size: 1.45em; }
+    h3 { font-size: 1.18em; color: var(--accent);}
     ul {
-      margin-top: 0.3em;
-      margin-bottom: 1.2em;
-      padding-left: 1.4em;
+      margin: 0.7em 0 1.4em 1.3em;
+      padding: 0;
+      font-size: 1.02em;
     }
-    @media (max-width: 1100px) {
-      .main-container { flex-direction: column; }
-      main { max-width: 100%; }
-      .video-right {
-        padding: 1em 0 0 0;
-        min-width: unset;
-        flex: none;
-        justify-content: center;
+    /* Mobile Styles */
+    @media (max-width: 900px) {
+      .hero { flex-direction: column-reverse; gap: 1.4em; padding: 1.6em 3vw 0.6em 3vw; }
+      .content-wrapper { margin-left: 0; }
+      .sidebar {
+        position: fixed;
+        left: 0; top: 0;
+        transform: translateX(-100%);
+        width: 220px;
+        box-shadow: 2px 0 14px 0 rgba(30,40,70,0.13);
+        transition: transform 0.23s;
       }
-      .video-right video { height: 340px; }
-    }
-    @media (max-width: 800px) {
-      nav { min-width: 60px; width: 60px; padding-top: 10px; }
-      nav h1 { display: none; }
-      nav a { padding: 12px 10px; font-size: 1em; }
-      .main-container { margin-left: 60px; }
-      main { padding: 1.2em 3vw; }
-      .video-right video { height: 240px; }
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      .hamburger { display: block; }
     }
     @media (max-width: 600px) {
-      .main-container { flex-direction: column; margin-left: 54px; }
-      .video-right video { height: 160px; }
-      main { padding: 0.7em 2vw; }
-      nav { width: 54px; min-width: 54px; }
-      h2 { font-size: 1.1em; }
+      .hero-video video { height: 180px; min-width: 160px; max-width: 98vw; }
+      .hero-text { padding: 0 1vw; }
+      .sidebar { width: 170px; }
+      .sidebar .logo { font-size: 1.06em; }
+    }
+    @media (max-width: 420px) {
+      .sidebar { width: 98vw; }
+      .hero-text { font-size: 0.97em; }
+      h2 { font-size: 1em; }
+      h3 { font-size: 0.95em; }
+    }
+    /* Overlay for sidebar on mobile */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(60,70,90,0.22);
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .sidebar-overlay.open {
+      display: block;
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <h1>Abiral-infrasolutions</h1>
-    <a class="active" href="#">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="personnel.html">Personnel</a>
-    <a href="rnd.html">Research & Development</a>
-    <a href="products.html">Products & Services</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
-  <div class="main-container">
-    <main>
-      <h2>Welcome to Abiral-infrasolutions Pvt. Ltd.</h2>
-      <p>
-        Abiral-infrasolutions Pvt. Ltd. is a leading infrastructure development company committed to delivering innovative, sustainable, and high-quality engineering solutions in Nepal and beyond.
-      </p>
-      <p>
-        Our company specializes in a broad range of civil engineering projects, research and development initiatives, and advanced products and services tailored to the needs of government, public, and private sector clients.
-      </p>
-      <p>
-        Driven by expertise, professionalism, and a passion for excellence, our multidisciplinary team ensures that each project meets the highest standards of quality, safety, and environmental stewardship.
-      </p>
-      <h3>Our Vision</h3>
-      <p>
-        To be a pioneer in infrastructure innovation, shaping the future of sustainable development through research, technology, and outstanding service delivery.
-      </p>
-      <h3>Our Mission</h3>
-      <ul>
-        <li>Deliver state-of-the-art infrastructure solutions with integrity and professionalism.</li>
-        <li>Promote research and development for continuous improvement and knowledge creation.</li>
-        <li>Support national growth and prosperity through responsible engineering practices.</li>
-        <li>Ensure client satisfaction by maintaining transparency, quality, and timely completion of projects.</li>
-      </ul>
-      <h3>Why Choose Us?</h3>
-      <ul>
-        <li>Extensive experience in infrastructure projects and research.</li>
-        <li>Commitment to innovation, quality, and ethical practices.</li>
-        <li>Skilled professionals with expertise in multiple domains.</li>
-        <li>Customer-focused approach for reliable and sustainable outcomes.</li>
-      </ul>
-    </main>
-    <div class="video-right">
-      <video
-        id="introVideo"
-        src="asdf.mp4"
-        muted
-        autoplay
-        loop
-        playsinline
-      ></video>
+  <!-- Hamburger for mobile -->
+  <button class="hamburger" id="sidebarToggle" aria-label="Open Menu">
+    <span></span>
+  </button>
+  <!-- Sidebar nav -->
+  <div class="sidebar closed" id="sideBar">
+    <div class="logo">Abiral-infrasolutions</div>
+    <nav>
+      <a class="active" href="#">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="personnel.html">Personnel</a>
+      <a href="rnd.html">Research & Development</a>
+      <a href="products.html">Products & Services</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </div>
+  <div class="sidebar-overlay" id="sideBarOverlay"></div>
+
+  <div class="content-wrapper">
+    <div class="hero">
+      <div class="hero-text">
+        <h2>Welcome to Abiral-infrasolutions Pvt. Ltd.</h2>
+        <p>
+          Abiral-infrasolutions Pvt. Ltd. is a leading infrastructure development company committed to delivering innovative, sustainable, and high-quality engineering solutions in Nepal and beyond.
+        </p>
+        <p>
+          Our company specializes in a broad range of civil engineering projects, research and development initiatives, and advanced products and services tailored to the needs of government, public, and private sector clients.
+        </p>
+        <p>
+          Driven by expertise, professionalism, and a passion for excellence, our multidisciplinary team ensures that each project meets the highest standards of quality, safety, and environmental stewardship.
+        </p>
+        <h3>Our Vision</h3>
+        <p>
+          To be a pioneer in infrastructure innovation, shaping the future of sustainable development through research, technology, and outstanding service delivery.
+        </p>
+        <h3>Our Mission</h3>
+        <ul>
+          <li>Deliver state-of-the-art infrastructure solutions with integrity and professionalism.</li>
+          <li>Promote research and development for continuous improvement and knowledge creation.</li>
+          <li>Support national growth and prosperity through responsible engineering practices.</li>
+          <li>Ensure client satisfaction by maintaining transparency, quality, and timely completion of projects.</li>
+        </ul>
+        <h3>Why Choose Us?</h3>
+        <ul>
+          <li>Extensive experience in infrastructure projects and research.</li>
+          <li>Commitment to innovation, quality, and ethical practices.</li>
+          <li>Skilled professionals with expertise in multiple domains.</li>
+          <li>Customer-focused approach for reliable and sustainable outcomes.</li>
+        </ul>
+      </div>
+      <div class="hero-video">
+        <video
+          id="introVideo"
+          src="asdf.mp4"
+          muted
+          autoplay
+          loop
+          playsinline
+        ></video>
+      </div>
     </div>
   </div>
   <script>
-    // Loop only the first 3 seconds of the video
+    // Sidebar open/close (mobile)
+    const sidebar = document.getElementById('sideBar');
+    const sidebarOverlay = document.getElementById('sideBarOverlay');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+
+    function openSidebar() {
+      sidebar.classList.remove('closed');
+      sidebar.classList.add('open');
+      sidebarOverlay.classList.add('open');
+    }
+    function closeSidebar() {
+      sidebar.classList.add('closed');
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('open');
+    }
+
+    sidebarToggle.addEventListener('click', openSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+
+    // Loop only first 2 seconds of video
     const video = document.getElementById('introVideo');
     video.addEventListener('timeupdate', function () {
       if (video.currentTime >= 2) {
