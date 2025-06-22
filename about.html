@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us | Abiral-infrasolutions Pvt. Ltd.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --main-bg: #f5f7fa;
+      --menu-bg: #22344e;
+      --menu-accent: #446cb3;
+      --text-main: #222;
+      --text-menu: #fff;
+      --highlight: #efaa3d;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--main-bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+    }
+    nav {
+      background: var(--menu-bg);
+      min-width: 220px;
+      width: 220px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.04);
+      position: fixed;
+      z-index: 10;
+      transition: width 0.2s;
+    }
+    nav h1 {
+      color: var(--highlight);
+      text-align: center;
+      font-size: 1.1em;
+      margin-bottom: 2.5em;
+      letter-spacing: 1px;
+    }
+    nav a {
+      color: var(--text-menu);
+      text-decoration: none;
+      padding: 16px 32px;
+      font-size: 1.08em;
+      border-left: 4px solid transparent;
+      transition: background 0.2s, border-color 0.2s;
+      margin-bottom: 4px;
+    }
+    nav a.active, nav a:hover {
+      background: var(--menu-accent);
+      border-left: 4px solid var(--highlight);
+    }
+    .main-container {
+      display: flex;
+      margin-left: 220px;
+      width: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    main {
+      flex: 1 1 0%;
+      padding: 2em 5vw;
+      max-width: 850px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #fff;
+      border-radius: 1.2rem;
+      margin: 2rem 2rem 2rem 0;
+      box-shadow: 0 2px 16px rgba(30, 41, 59, 0.09);
+    }
+    h1 {
+      color: var(--menu-accent);
+      font-size: 2rem;
+      margin-bottom: 0.5em;
+    }
+    h2 {
+      color: var(--highlight);
+      margin-top: 0.3em;
+      margin-bottom: 0.6em;
+      font-size: 1.3em;
+    }
+    ul {
+      margin-top: 0.2em;
+      margin-bottom: 1.2em;
+      padding-left: 1.4em;
+    }
+    @media (max-width: 1100px) {
+      .main-container { flex-direction: column; }
+      main { max-width: 100%; }
+    }
+    @media (max-width: 800px) {
+      nav { min-width: 60px; width: 60px; padding-top: 10px; }
+      nav h1 { display: none; }
+      nav a { padding: 12px 10px; font-size: 1em; }
+      .main-container { margin-left: 60px; }
+      main { padding: 1.2em 3vw; }
+    }
+    @media (max-width: 600px) {
+      .main-container { flex-direction: column; margin-left: 54px; }
+      main { padding: 0.7em 2vw; }
+      nav { width: 54px; min-width: 54px; }
+      h2 { font-size: 1.1em; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Abiral-infrasolutions</h1>
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About Us</a>
+    <a href="personnel.html">Personnel</a>
+    <a href="rnd.html">Research & Development</a>
+    <a href="products.html">Products & Services</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+  <div class="main-container">
+    <main>
+      <h1>About Us</h1>
+      <h2>Legal Profile & Company Objectives</h2>
+      <p>
+        <strong>Abiral-infrasolutions Pvt. Ltd.</strong> is a registered private limited company, incorporated under the Companies Act of Nepal in November 2020. Our registered office is located in Bagmati Province, Kathmandu Metropolitan City, Ward No. 3, Kathmandu District, Nepal.
+      </p>
+      <p>
+        The company is legally recognized as both commercial and entrepreneurial in nature, operating in full compliance with all relevant Nepali laws and regulations.
+      </p>
+      <h2>Our Business Scope</h2>
+      <p>
+        Abiral-infrasolutions Pvt. Ltd. was founded to promote innovation and progress in Nepal’s infrastructure sector. Our principal business areas include:
+      </p>
+      <ul>
+        <li>Planning, development, design, and implementation of infrastructure projects such as hydropower, highways, mechanical and electrical engineering works, buildings, roads, bridges, water supply, irrigation, and telecommunications.</li>
+        <li>Supplying and trading of machinery, equipment, vehicles, raw materials, generators, agricultural and household goods, as well as electrical and construction materials—sourced both locally and internationally as permitted by law.</li>
+        <li>Providing engineering consulting, project management, technical supervision, and operational support for construction, real estate, energy, and public utilities.</li>
+        <li>Engaging in import/export, distribution, dealership, and supply chains related to infrastructure and development materials.</li>
+        <li>Participating in any other lawful business activities supporting infrastructure, industrial, environmental, and technological development, as authorized by Nepalese regulations.</li>
+      </ul>
+      <p>
+        Abiral-infrasolutions Pvt. Ltd. is dedicated to supporting national development by delivering innovative, reliable, and sustainable infrastructure solutions. Our management and technical team includes highly experienced professionals in engineering, consulting, and project management.
+      </p>
+      <p>
+        <strong>For more detailed legal or company information, please do not hesitate to contact us as listed on our Contact Us page.</strong>
+      </p>
+    </main>
+  </div>
+</body>
+</html>
