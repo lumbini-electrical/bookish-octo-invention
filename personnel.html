@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personnel | Abiral-infrasolutions Pvt. Ltd.</title>
+  <style>
+    :root {
+      --main-bg: #f5f7fa;
+      --menu-bg: #22344e;
+      --menu-accent: #446cb3;
+      --text-main: #222;
+      --text-menu: #fff;
+      --highlight: #efaa3d;
+      --radius: 1.2rem;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--main-bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+    }
+    nav {
+      background: var(--menu-bg);
+      min-width: 220px;
+      width: 220px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.04);
+      position: fixed;
+      z-index: 10;
+      transition: width 0.2s;
+    }
+    nav h1 {
+      color: var(--highlight);
+      text-align: center;
+      font-size: 1.1em;
+      margin-bottom: 2.5em;
+      letter-spacing: 1px;
+    }
+    nav a {
+      color: var(--text-menu);
+      text-decoration: none;
+      padding: 16px 32px;
+      font-size: 1.08em;
+      border-left: 4px solid transparent;
+      transition: background 0.2s, border-color 0.2s;
+      margin-bottom: 4px;
+    }
+    nav a.active, nav a:hover {
+      background: var(--menu-accent);
+      border-left: 4px solid var(--highlight);
+    }
+    .main-container {
+      display: flex;
+      margin-left: 220px;
+      width: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    main {
+      flex: 1 1 0%;
+      padding: 2em 5vw;
+      max-width: 950px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: var(--radius);
+      margin: 2.2em 2em 2.2em 0;
+      box-shadow: 0 2px 20px rgba(60,80,120,0.07);
+    }
+    h1 {
+      color: var(--highlight);
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+    .team-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .team-member {
+      background: #f1f5f9;
+      border-radius: 0.8rem;
+      padding: 1.5rem 1.2rem;
+      flex: 1 1 260px;
+      min-width: 230px;
+      box-shadow: 0 2px 8px rgba(30, 41, 59, 0.07);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .member-title {
+      font-weight: 600;
+      color: var(--menu-accent);
+      margin-bottom: 0.2rem;
+      font-size: 1.15em;
+    }
+    .member-role {
+      font-size: 1rem;
+      color: #475569;
+      margin-bottom: 0.8rem;
+    }
+    .member-desc {
+      color: #222;
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+    .member-link {
+      font-size: 0.93em;
+      color: var(--menu-accent);
+      text-decoration: underline;
+      margin-left: 3px;
+    }
+    @media (max-width: 800px) {
+      nav { min-width: 60px; width: 60px; padding-top: 10px; }
+      nav h1 { display: none; }
+      nav a { padding: 12px 10px; font-size: 1em; }
+      .main-container { margin-left: 60px; }
+      main { padding: 1.2em 3vw; margin: 1em 0.6em 1em 0; }
+      .team-list { gap: 1rem; }
+    }
+    @media (max-width: 600px) {
+      .main-container { flex-direction: column; margin-left: 54px; }
+      main { padding: 0.7em 2vw; margin: 0.8em 0.4em 0.8em 0; }
+      nav { width: 54px; min-width: 54px; }
+      .team-list { flex-direction: column; gap: 0.8rem;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Abiral-infrasolutions</h1>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="personnel.html" class="active">Personnel</a>
+    <a href="rnd.html">Research & Development</a>
+    <a href="products.html">Products & Services</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+  <div class="main-container">
+    <main>
+      <h1>Personnel</h1>
+      <p>
+        Abiral-infrasolutions Pvt. Ltd. is led by a multidisciplinary team of experienced professionals dedicated to advancing innovative infrastructure solutions in Nepal.
+      </p>
+      <div class="team-list">
+        <div class="team-member">
+          <div class="member-title">Project Management</div>
+          <div class="member-role">Managing Director</div>
+          <div class="member-desc">
+            Founder and chief executive responsible for strategic direction, operations, and overall leadership. With extensive experience in infrastructure development, he oversees all projects and company growth.
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="member-title">Geospatial Analyst</div>
+          <div class="member-role">Technical Lead</div>
+          <div class="member-desc">
+            Expert in geospatial analysis, mapping, GIS data management, and remote sensing. Supports project planning, monitoring, and evaluation through advanced spatial data analytics.
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="member-title">Civil Engineers</div>
+          <div class="member-role">Project Engineers</div>
+          <div class="member-desc">
+            Licensed professionals with deep expertise in civil and structural engineering, including design, construction, and supervision of roads, bridges, and buildings.
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="member-title">Project Manager</div>
+          <div class="member-role">Project & Operations Management</div>
+          <div class="member-desc">
+            Oversees project scheduling, coordination, resource management, and quality control to ensure timely and efficient completion of all assignments.
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="member-title">Environmentalist</div>
+          <div class="member-role">Environmental Advisor</div>
+          <div class="member-desc">
+            Dr. Ram C. Sharma (BSc Forestry, MS Environmental Systems, PhD Earth Sciences)
+            <a class="member-link" href="https://digital-ecosphere.org" target="_blank" rel="noopener">https://digital-ecosphere.org</a><br>
+            Provides leadership in academic publications and environmental assessment, natural resource management, and sustainability planning. Responsible for guiding environmental policy integration, conducting impact studies, and advising on climate adaptation and biodiversity with research assistant, Jessica Shakya (BSc Forestry).
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="member-title">Administrative & Support Staff</div>
+          <div class="member-role">Administration</div>
+          <div class="member-desc">
+            Handles company operations, financial management, client relations, documentation, and general office support.
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
