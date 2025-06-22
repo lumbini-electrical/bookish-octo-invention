@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | Abiral-infrasolutions Pvt. Ltd.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --main-bg: #f5f7fa;
+      --menu-bg: #22344e;
+      --menu-accent: #446cb3;
+      --text-main: #222;
+      --text-menu: #fff;
+      --highlight: #efaa3d;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--main-bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+    }
+    nav {
+      background: var(--menu-bg);
+      min-width: 220px;
+      width: 220px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.04);
+      position: fixed;
+      z-index: 10;
+      transition: width 0.2s;
+    }
+    nav h1 {
+      color: var(--highlight);
+      text-align: center;
+      font-size: 1.1em;
+      margin-bottom: 2.5em;
+      letter-spacing: 1px;
+    }
+    nav a {
+      color: var(--text-menu);
+      text-decoration: none;
+      padding: 16px 32px;
+      font-size: 1.08em;
+      border-left: 4px solid transparent;
+      transition: background 0.2s, border-color 0.2s;
+      margin-bottom: 4px;
+    }
+    nav a.active, nav a:hover {
+      background: var(--menu-accent);
+      border-left: 4px solid var(--highlight);
+    }
+    .main-container {
+      display: flex;
+      margin-left: 220px;
+      width: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    main {
+      flex: 1 1 0%;
+      padding: 2em 5vw;
+      max-width: 750px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #fff;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.7rem;
+      color: var(--highlight);
+    }
+    h2 {
+      color: #3a506b;
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .contact-details {
+      margin-top: 1.6rem;
+      line-height: 1.75;
+      font-size: 1.12em;
+    }
+    .contact-details b {
+      color: var(--menu-accent);
+    }
+    @media (max-width: 800px) {
+      nav { min-width: 60px; width: 60px; padding-top: 10px; }
+      nav h1 { display: none; }
+      nav a { padding: 12px 10px; font-size: 1em; }
+      .main-container { margin-left: 60px; }
+      main { padding: 1.2em 3vw; }
+    }
+    @media (max-width: 600px) {
+      .main-container { flex-direction: column; margin-left: 54px; }
+      main { padding: 0.7em 2vw; }
+      nav { width: 54px; min-width: 54px; }
+      h2 { font-size: 1.1em; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Abiral-infrasolutions</h1>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="personnel.html">Personnel</a>
+    <a href="rnd.html">Research & Development</a>
+    <a href="products.html">Products & Services</a>
+    <a href="contact.html" class="active">Contact Us</a>
+  </nav>
+  <div class="main-container">
+    <main>
+      <h1>Contact Us</h1>
+      <h2>Get in touch with Abiral-infrasolutions Pvt. Ltd.</h2>
+      <div class="contact-details">
+        <b>Registered Office:</b><br>
+        Bagmati Province, Kathmandu District,<br>
+        Kathmandu Metropolitan City, Ward No. 3,<br>
+        Kathmandu, Nepal<br><br>
+        <b>Phone:</b> 9851140313<br>
+        <b>Email:</b> <a href="mailto:info@abiral-infrasolutions.com">info@abiral-infrasolutions.com</a><br>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
