@@ -1,25 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Abiral-infrasolutions Pvt. Ltd.</title>
+  <title>Lumbini Electrical Proprietary Limited Company</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
-      --main-bg: #f5f7fa;
+      --main-bg: linear-gradient(120deg, #e0ffe5 0%, #c3ddfc 100%);
       --menu-bg: #22344e;
-      --menu-accent: #446cb3;
-      --text-main: #222;
+      --menu-accent: #3b82f6;
+      --text-main: #22344e;
       --text-menu: #fff;
-      --highlight: #efaa3d;
+      --highlight: #32cd32;
+      --card-bg: rgba(255,255,255,0.93);
+      --btn-glow: 0 0 8px 2px #32cd32cc, 0 0 20px 5px #89fcb5b3;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
     }
     body {
-      margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
       background: var(--main-bg);
       color: var(--text-main);
-      min-height: 100vh;
       display: flex;
     }
     nav {
@@ -30,7 +34,7 @@
       display: flex;
       flex-direction: column;
       padding-top: 40px;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.04);
+      box-shadow: 2px 0 10px rgba(0,0,0,0.06);
       position: fixed;
       z-index: 10;
       transition: width 0.2s;
@@ -38,15 +42,16 @@
     nav h1 {
       color: var(--highlight);
       text-align: center;
-      font-size: 1.1em;
+      font-size: 1.15em;
       margin-bottom: 2.5em;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      font-weight: bold;
     }
     nav a {
       color: var(--text-menu);
       text-decoration: none;
       padding: 16px 32px;
-      font-size: 1.08em;
+      font-size: 1.11em;
       border-left: 4px solid transparent;
       transition: background 0.2s, border-color 0.2s;
       margin-bottom: 4px;
@@ -60,81 +65,119 @@
       margin-left: 220px;
       width: 100%;
       min-height: 100vh;
-      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      background: none;
     }
-    main {
-      flex: 1 1 0%;
-      padding: 2em 5vw;
-      max-width: 750px;
-      width: 100%;
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: 2.5em;
+      box-shadow: 0 8px 48px rgba(60,100,150,0.12), 0 2px 12px #32cd3220;
+      max-width: 560px;
+      padding: 3em 2.5em 2.4em 2.5em;
+      margin: 3em auto;
+      text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
     }
-    .video-right {
-      flex: 0 0 340px;
-      min-width: 220px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-end;
-      padding: 2em 2em 0 0;
-      box-sizing: border-box;
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(ellipse at center, #d1ffe0 0%, #ffffff00 85%);
+      opacity: 0.85;
+      filter: blur(6px);
+      transform: translate(-50%, -65%);
+      z-index: 0;
+      pointer-events: none;
+      animation: float-bg 8s ease-in-out infinite alternate;
     }
-    .video-right video {
-      aspect-ratio: 9/16;
+    @keyframes float-bg {
+      0% { transform: translate(-50%, -65%) scale(1);}
+      100% { transform: translate(-50%, -90%) scale(1.13);}
+    }
+    .hero-logo {
+      font-size: 2.4em;
+      font-weight: bold;
+      color: #32cd32;
+      margin-bottom: 0.5em;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      z-index: 1;
+    }
+    .hero-tagline {
+      color: #297ca3;
+      font-size: 1.25em;
+      font-weight: 600;
+      margin-bottom: 1.7em;
+      letter-spacing: 0.4px;
+      z-index: 1;
+    }
+    .hero-desc {
+      font-size: 1.08em;
+      color: #17475e;
+      margin-bottom: 2em;
+      line-height: 1.8;
+      z-index: 1;
+    }
+    .hero-btn {
+      padding: 0.85em 2.5em;
+      border-radius: 2em;
+      border: none;
+      background: linear-gradient(90deg,#32cd32 0%,#7fffd4 100%);
+      color: #22344e;
+      font-weight: bold;
+      font-size: 1.12em;
+      box-shadow: var(--btn-glow);
+      cursor: pointer;
+      transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+      margin-bottom: 1.5em;
+      z-index: 1;
+    }
+    .hero-btn:hover {
+      box-shadow: 0 0 0 2px #32cd32cc, 0 0 30px 8px #7fffd4c0;
+      background: linear-gradient(90deg,#7fffd4 0%,#32cd32 100%);
+      color: #185a2e;
+    }
+    .artistic-wave {
       width: 100%;
-      height: 430px;
-      max-height: 80vh;
-      object-fit: cover;
-      background: #222;
-      border-radius: 18px;
-      box-shadow: 0 2px 20px rgba(60,80,120,0.13);
-      display: block;
+      height: 60px;
+      margin-bottom: -2.7em;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 0;
+      pointer-events: none;
     }
-    h2 {
-      color: var(--highlight);
-      margin-top: 0.5em;
-    }
-    h3 {
-      margin-bottom: 0.25em;
-      color: #3a506b;
-    }
-    ul {
-      margin-top: 0.3em;
-      margin-bottom: 1.2em;
-      padding-left: 1.4em;
-    }
-    @media (max-width: 1100px) {
-      .main-container { flex-direction: column; }
-      main { max-width: 100%; }
-      .video-right {
-        padding: 1em 0 0 0;
-        min-width: unset;
-        flex: none;
-        justify-content: center;
-      }
-      .video-right video { height: 340px; }
+    @media (max-width: 950px) {
+      .hero-card { margin: 2em 0.7em;}
     }
     @media (max-width: 800px) {
-      nav { min-width: 60px; width: 60px; padding-top: 10px; }
-      nav h1 { display: none; }
-      nav a { padding: 12px 10px; font-size: 1em; }
-      .main-container { margin-left: 60px; }
-      main { padding: 1.2em 3vw; }
-      .video-right video { height: 240px; }
+      nav { min-width: 60px; width: 60px; padding-top: 10px;}
+      nav h1 { display: none;}
+      nav a { padding: 12px 10px; font-size: 1em;}
+      .main-container { margin-left: 60px;}
+      .hero-card { padding: 2.1em 1em 1.6em 1em;}
     }
     @media (max-width: 600px) {
-      .main-container { flex-direction: column; margin-left: 54px; }
-      .video-right video { height: 160px; }
-      main { padding: 0.7em 2vw; }
-      nav { width: 54px; min-width: 54px; }
-      h2 { font-size: 1.1em; }
+      nav { width: 54px; min-width: 54px;}
+      nav h1 { display: none;}
+      nav a { font-size: 1em; padding: 12px 2px;}
+      .main-container { margin-left: 54px;}
+      .hero-card { border-radius: 1.5em; padding: 1.1em 0.7em 1.2em 0.7em;}
+      .hero-logo { font-size: 1.3em;}
     }
   </style>
 </head>
 <body>
   <nav>
-    <h1>Abiral-infrasolutions</h1>
+    <h1>Lumbini Electrical</h1>
     <a class="active" href="#">Home</a>
     <a href="about.html">About Us</a>
     <a href="personnel.html">Personnel</a>
@@ -143,57 +186,19 @@
     <a href="contact.html">Contact Us</a>
   </nav>
   <div class="main-container">
-    <main>
-      <h2>Welcome to Abiral-infrasolutions Pvt. Ltd.</h2>
-      <p>
-        Abiral-infrasolutions Pvt. Ltd. is a leading infrastructure development company committed to delivering innovative, sustainable, and high-quality engineering solutions in Nepal and beyond.
-      </p>
-      <p>
-        Our company specializes in a broad range of civil engineering projects, research and development initiatives, and advanced products and services tailored to the needs of government, public, and private sector clients.
-      </p>
-      <p>
-        Driven by expertise, professionalism, and a passion for excellence, our multidisciplinary team ensures that each project meets the highest standards of quality, safety, and environmental stewardship.
-      </p>
-      <h3>Our Vision</h3>
-      <p>
-        To be a pioneer in infrastructure innovation, shaping the future of sustainable development through research, technology, and outstanding service delivery.
-      </p>
-      <h3>Our Mission</h3>
-      <ul>
-        <li>Deliver state-of-the-art infrastructure solutions with integrity and professionalism.</li>
-        <li>Promote research and development for continuous improvement and knowledge creation.</li>
-        <li>Support national growth and prosperity through responsible engineering practices.</li>
-        <li>Ensure client satisfaction by maintaining transparency, quality, and timely completion of projects.</li>
-      </ul>
-      <h3>Why Choose Us?</h3>
-      <ul>
-        <li>Extensive experience in infrastructure projects and research.</li>
-        <li>Commitment to innovation, quality, and ethical practices.</li>
-        <li>Skilled professionals with expertise in multiple domains.</li>
-        <li>Customer-focused approach for reliable and sustainable outcomes.</li>
-      </ul>
-    </main>
-    <div class="video-right">
-      <video
-        id="introVideo"
-        src="asdf.mp4"
-        muted
-        autoplay
-        loop
-        playsinline
-      ></video>
+    <div class="hero-card">
+      <div class="hero-logo">Lumbini Electrical<br>Proprietary Limited Company</div>
+      <div class="hero-tagline">Empowering Sustainability, Innovation &amp; Connection</div>
+      <div class="hero-desc">
+        Lumbini Electrical is your trusted partner for electrical contracting, renewable energy, and technology-driven solutions in Australia.<br>
+        We deliver reliable, safe, and eco-friendly electrical systems for homes, businesses, and communities—guided by a passion for quality and a vision for a brighter, sustainable future.
+      </div>
+      <a href="contact.html" class="hero-btn">Contact Us</a>
+      <svg class="artistic-wave" viewBox="0 0 400 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 20Q100 60 200 20T400 20V60H0V20Z" fill="#c3ddfc" fill-opacity="0.25"/>
+        <path d="M0 40Q100 0 200 40T400 40V60H0V40Z" fill="#32cd32" fill-opacity="0.12"/>
+      </svg>
     </div>
   </div>
-  <script>
-    // Loop only the first 3 seconds of the video
-    const video = document.getElementById('introVideo');
-    video.addEventListener('timeupdate', function () {
-      if (video.currentTime >= 2) {
-        video.currentTime = 0;
-        video.play();
-      }
-    });
-  </script>
 </body>
 </html>
-
