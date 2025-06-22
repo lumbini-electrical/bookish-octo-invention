@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
-      --sidebar-bg: #28344a;
-      --sidebar-accent: #4776be;
+      --sidebar-bg: #21283b;
+      --sidebar-accent: #28487a;
       --sidebar-highlight: #ffb444;
-      --sidebar-text: #f6f6f9;
-      --main-bg: #f6f8fb;
-      --main-card: #fff;
-      --main-text: #222;
-      --shadow: 0 2px 16px rgba(30,41,59,0.09);
+      --sidebar-text: #fff;
+      --main-bg: #171b23;
+      --main-card: #232941;
+      --main-text: #fff;
+      --shadow: 0 2px 16px rgba(30,41,59,0.16);
       --radius: 1.15em;
     }
     html, body {
@@ -39,7 +39,7 @@
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      box-shadow: 2px 0 14px 0 #0001;
+      box-shadow: 2px 0 14px 0 #0002;
       z-index: 10;
     }
     nav .logo {
@@ -64,7 +64,7 @@
     nav a.active, nav a:hover {
       background: var(--sidebar-accent);
       border-left: 4px solid var(--sidebar-highlight);
-      color: #fff;
+      color: var(--sidebar-highlight);
     }
     .main-container {
       margin-left: 235px;
@@ -86,6 +86,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      color: var(--main-text);
     }
     h2 {
       color: var(--sidebar-highlight);
@@ -116,7 +117,7 @@
       height: 440px;
       max-height: 80vh;
       object-fit: cover;
-      background: #182132;
+      background: #10131a;
       border-radius: 22px;
       box-shadow: 0 2px 20px rgba(60,80,120,0.13);
       display: block;
